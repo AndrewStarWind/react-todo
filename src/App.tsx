@@ -1,13 +1,14 @@
 import { useState } from "react";
-import Accordion from "./Accordion";
-import Content from "./Content";
-import Footer from "./Footer";
-import Header from "./Header";
-import "./App.css";
+import Accordion from "./components/Accordion";
+import Content from "./components/Content";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import "./css/App.css";
 
 
 function App() {
   const [searchValue, setSearchValue] = useState('');
+
   return (
     <div className="app">
       <Header searchValue={searchValue} onSearchCallback={setSearchValue} />

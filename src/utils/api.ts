@@ -3,20 +3,13 @@ import { ITodo } from '../interface';
 
 export default class Api {
 
-   static query(searchParam?: string): Promise<ITodo[]> {
+   static query(): Promise<ITodo[]> {
       return fetch(Api._url, {
          headers: {
             'Content-Type': 'application/json'
          },
          method: 'GET'
-      }).then((res) => res.json()).then((collection: ITodo[]) => {
-         if (searchParam && searchParam.length > 1) {
-            return collection.filter((item) => {
-               return item.title.includes(searchParam);
-            })
-         }
-         return collection;
-      });
+      }).then((res) => res.json());
    }
 
    static create(item: ITodo): Promise<ITodo> {
